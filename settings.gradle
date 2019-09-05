@@ -1,4 +1,0 @@
-include 'spark-tools'
-include 'bigdata-platform'
-include 'spark-tools-kotlin'
-

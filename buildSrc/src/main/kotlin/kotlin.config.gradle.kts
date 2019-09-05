@@ -1,9 +1,8 @@
-import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+    id("java.config")
     kotlin("jvm")
-    id("org.jetbrains.dokka")
 }
 
 plugins.withId("kotlin") {
@@ -11,19 +10,7 @@ plugins.withId("kotlin") {
         kotlinOptions.jvmTarget = "1.8"
     }
 
-    tasks.withType<Test> {
-        useJUnitPlatform()
-    }
-
-    val javadocJar = tasks.create<Jar>("javadocJar") {
-        val dokkaTask = tasks.getByName("dokka", DokkaTask::class)
-        dependsOn(dokkaTask)
-        archiveClassifier.set("javadoc")
-        from(dokkaTask.outputDirectory)
-    }
-
-    artifacts {
-        add("archives", tasks.kotlinSourcesJar.get().archiveFile)
-        add("archives", javadocJar.archiveFile)
-    }
+//    artifacts {
+//        add("archives", tasks.kotlinSourcesJar.get().archiveFile)
+//    }
 }

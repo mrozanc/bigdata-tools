@@ -1,10 +1,10 @@
+plugins {
+    id("com.gradle.build-scan") version "2.3"
+}
+
 allprojects {
     group = "fr.rozanc.bigdata"
-    version = "1.0-SNAPSHOT"
-
-    ext {
-        set("kotlinVersion", "1.3.31")
-    }
+    version = file("$rootDir/version.txt").readText()
     
     repositories {
         jcenter()
@@ -12,6 +12,11 @@ allprojects {
 }
 
 tasks.withType<Wrapper> {
-    gradleVersion = "5.4.1"
+    gradleVersion = "5.6.1"
     distributionType = Wrapper.DistributionType.ALL
+}
+
+buildScan {
+    termsOfServiceUrl = "https://gradle.com/terms-of-service"
+    termsOfServiceAgree = "yes"
 }

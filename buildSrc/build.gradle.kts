@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.31")
-    implementation("io.freefair.gradle:lombok-plugin:3.3.0")
+    implementation(kotlin(module = "gradle-plugin", version = "1.3.41"))
+    implementation("io.freefair.gradle:lombok-plugin:3.8.4")
     implementation("org.jetbrains.dokka:dokka-gradle-plugin:0.9.18")
 }
